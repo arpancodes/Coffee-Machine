@@ -5,19 +5,19 @@ public class CoffeeMachine {
     public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
+        System.out.println("Write action (buy, fill, take, remaining, exit):");
+        String option = "";
+        do{
+            option = scanner.nextLine();
+            switch (option){
+                case "buy": buy(); break;
+                case "fill": fill(); break;
+                case "take": take(); break;
+                case "remaining": printDetails(); break;
+                case "exit": break;
+            }
+        } while(!option.equals("exit"));
 
-        printDetails();
-
-        System.out.println("Write action (buy, fill, take):");
-        String option = scanner.nextLine();
-
-        switch (option){
-            case "buy": buy(); break;
-            case "fill": fill(); break;
-            case "take": take(); break;
-        }
-
-        printDetails();
 //        int waterCup =  waterAvail / water;
 //        int milkCup = milkAvail / milk;
 //        int coffeeCup = coffeeAvail / coffee;
@@ -51,35 +51,56 @@ public class CoffeeMachine {
 
     public static void buy(){
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: ");
-        int op = scanner.nextInt();
+        String op = scanner.nextLine();
         switch (op){
-            case 1: buyEspresso(); break;
-            case 2: buyLatte(); break;
-            case 3: buyCappuccino(); break;
+            case "1": buyEspresso(); break;
+            case "2": buyLatte(); break;
+            case "3": buyCappuccino(); break;
+            case "back": break;
         }
     }
 
     public static void buyEspresso(){
-        water -= 250;
-        coffee -= 16;
-        money += 4;
-        cups--;
+        if (water < 250) System.out.println("Sorry, not enough water!");
+        else if (coffee < 16) System.out.println("Sorry, not enough coffee!");
+        else if (cups < 1) System.out.println("Sorry, not enough cups!");
+        else{
+            System.out.println("I have enough resources, making you a coffee!");
+            water -= 250;
+            coffee -= 16;
+            money += 4;
+            cups--;
+        }
     }
 
     public static void buyLatte(){
-        water -= 350;
-        coffee -= 20;
-        milk -= 75;
-        money += 7;
-        cups--;
+        if (water < 350) System.out.println("Sorry, not enough water!");
+        else if (milk < 75) System.out.println("Sorry, not enough milk!");
+        else if (coffee < 20) System.out.println("Sorry, not enough coffee!");
+        else if (cups < 1) System.out.println("Sorry, not enough cups!");
+        else {
+            System.out.println("I have enough resources, making you a coffee!");
+            water -= 350;
+            coffee -= 20;
+            milk -= 75;
+            money += 7;
+            cups--;
+        }
     }
 
     public static void buyCappuccino(){
-        water -= 200;
-        coffee -= 12;
-        milk -= 100;
-        money += 6;
-        cups--;
+        if (water < 200) System.out.println("Sorry, not enough water!");
+        else if (milk < 100) System.out.println("Sorry, not enough milk!");
+        else if (coffee < 12) System.out.println("Sorry, not enough coffee!");
+        else if (cups < 1) System.out.println("Sorry, not enough cups!");
+        else {
+            System.out.println("I have enough resources, making you a coffee!");
+            water -= 200;
+            coffee -= 12;
+            milk -= 100;
+            money += 6;
+            cups--;
+        }
     }
 
     public static void fill (){
