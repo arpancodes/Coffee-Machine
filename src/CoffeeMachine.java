@@ -4,7 +4,6 @@ public class CoffeeMachine {
     public static int water = 400, milk = 540, coffee = 120, cups = 9, money = 550;
     public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-
         System.out.println("Write action (buy, fill, take, remaining, exit):");
         String option = "";
         do{
@@ -17,40 +16,10 @@ public class CoffeeMachine {
                 case "exit": break;
             }
         } while(!option.equals("exit"));
-
-//        int waterCup =  waterAvail / water;
-//        int milkCup = milkAvail / milk;
-//        int coffeeCup = coffeeAvail / coffee;
-//
-//        int minCups = waterCup < milkCup ? (waterCup < coffeeCup ? waterCup : coffeeCup ) : ( milkCup < coffeeCup ? milkCup : coffeeCup );
-
-//        System.out.println("Write how many cups of coffee you will need:");
-//        int cups = scanner.nextInt();
-//
-//        if(cups == minCups){
-//            System.out.println("Yes, I can make that amount of coffee");
-//        }
-//        else if (cups < minCups){
-//            System.out.println("Yes, I can make that amount of coffee (and even " + (minCups - cups) + " more than that)");
-//        } else{
-//            System.out.println("No, I can make only " + minCups + " cup(s) of coffee");
-//        }
-
-//        System.out.println(water + " ml of water");
-//        System.out.println(milk + " ml of milk");
-//        System.out.println(coffee + " g of coffee beans");
-
-//        System.out.println("Starting to make a coffee");
-//        System.out.println("Grinding coffee beans");
-//        System.out.println("Boiling water");
-//        System.out.println("Mixing boiled water with crushed coffee beans");
-//        System.out.println("Pouring coffee into the cup");
-//        System.out.println("Pouring some milk into the cup");
-//        System.out.println("Coffee is ready!");
     }
 
     public static void buy(){
-        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: ");
+        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ");
         String op = scanner.nextLine();
         switch (op){
             case "1": buyEspresso(); break;
@@ -128,6 +97,6 @@ public class CoffeeMachine {
         System.out.println(milk + " of milk");
         System.out.println(coffee + " of coffee beans");
         System.out.println(cups + " of disposable cups");
-        System.out.println(money + " of money");
+        System.out.println("$" + money + " of money");
     }
 }
